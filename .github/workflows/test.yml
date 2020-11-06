@@ -16,5 +16,8 @@ jobs:
         run: |
           echo "node version: $(node --version)"
           echo "firebase version: $(firebase --version)"
+      - name: Install dependencies
+        working-directory: functions
+        run: npm install
       - name: Run Firebase Emulators
         run: firebase emulators:exec ./test.sh --project=jthegedus-firebase-extensions
