@@ -12,9 +12,9 @@ jobs:
       - name: asdf installed versions
         run: |
           asdf current
-      - name: "run --version on node and firebase cli" 
+      - name: "run --version on node and firebase cli"
         run: |
           echo "node version: $(node --version)"
           echo "firebase version: $(firebase --version)"
       - name: Run Firebase Extensions
-        run: firebase emulators:exec --only functions test.sh
+        run: firebase emulators:exec --project jthegedus-firebase-extensions --only functions test.sh
