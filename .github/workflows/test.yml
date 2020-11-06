@@ -1,0 +1,20 @@
+on: push
+jobs:
+  emulator_test:
+    name: Run all tests using Firebase Emulator Suite
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: asdf dependencies installation (Firebase CLI, NodeJS, Java OpenJDK)
+        uses: asdf-vm/actions/install@v1
+        with:
+          before_install: bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+      - name: asdf installed versions
+        run: |
+          asdf current
+      - name: "run --version on node and firebase cli" 
+        run: |
+          echo "node version: $(node --version)"
+          echo "firebase version: firebase --version"
+      - name: Enable Firebase Extensions
+        run: firebase emulators:exec --only functions test.sh
