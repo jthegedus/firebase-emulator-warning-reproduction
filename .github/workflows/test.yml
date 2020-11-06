@@ -16,5 +16,5 @@ jobs:
         run: |
           echo "node version: $(node --version)"
           echo "firebase version: $(firebase --version)"
-      - name: Run Firebase Extensions
-        run: firebase emulators:exec --only=functions ./test.sh --project=jthegedus-firebase-extensions
+      - name: Run Firebase Emulators
+        run: firebase emulators:exec ./test.sh --project=jthegedus-firebase-extensions
