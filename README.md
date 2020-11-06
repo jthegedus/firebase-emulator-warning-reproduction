@@ -4,7 +4,7 @@ Minimal reproduction for https://github.com/firebase/firebase-tools/issues/1489
 
 In the GitHub Action:
 
-- set Node version with `asdf` and ensure running `node --version` in a later step produces the version set by `asdf`
+- set **Node 10** with `asdf` and ensure running `node --version` in a later step produces the version set by `asdf`
 - `firebase emulators:exec ...` runs and prints
 	```
 	⚠  Your requested "node" version "10" doesn't match your global version "12"
